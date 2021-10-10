@@ -370,7 +370,7 @@ impl CompressedFeature {
         opts.mode(RequestMode::Cors);
 
         let url = format!(
-            "wasm-pathfinder/data/features/feature_{}.json",
+            "wasm-pathfinder/wasm-pathfinder-data/features/feature_{}.json",
             &feature_key
         );
 
@@ -748,7 +748,7 @@ impl GlobalNodeContainer {
         opts.method("GET");
         opts.mode(RequestMode::Cors);
 
-        let url = "data/rs3/feature_table.json";
+        let url = "wasm-pathfinder/wasm-pathfinder-data/feature_table.json";
 
         let request = Request::new_with_str_and_init(&url, &opts)?;
         request
@@ -778,7 +778,7 @@ impl GlobalNodeContainer {
         opts.method("GET");
         opts.mode(RequestMode::Cors);
 
-        let url = "data/rs3/feature_navigation.json";
+        let url = "wasm-pathfinder/wasm-pathfinder-data/feature_navigation.json";
 
         let request = Request::new_with_str_and_init(&url, &opts)?;
         request
