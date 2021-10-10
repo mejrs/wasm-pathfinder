@@ -370,7 +370,7 @@ impl CompressedFeature {
         opts.mode(RequestMode::Cors);
 
         let url = format!(
-            "data/rs3/features/feature_{}.json",
+            "wasm-pathfinder/data/features/feature_{}.json",
             &feature_key
         );
 
