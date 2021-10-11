@@ -80,21 +80,6 @@ pub fn prepend_vec_append<T>(a: T, sequence: Vec<T>, z: T) -> Vec<T> {
 
 #[cfg(test)]
 mod tests {
-    use factorial::Factorial;
-    #[test]
-    fn test_vec_permutations() {
-        for a in 1..10 {
-            for b in 1..10 {
-                let iter = vec![(0, a as usize), (1, b as usize)];
-                let permutations: Vec<_> = super::unique_permutations(iter).collect();
-
-                let n = (a + b).factorial() / (a.factorial() * b.factorial());
-                assert!(permutations.len() == n);
-            }
-        }
-    }
-    use super::Accumulator;
-
     #[test]
     fn test_accumulator_cumulative() {
         let result: Vec<i32> = (1..6).accumulate(|x, y| x + y).collect();

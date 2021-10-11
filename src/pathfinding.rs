@@ -4,7 +4,6 @@ use fnv::FnvHashSet as HashSet;
 use itertools::Itertools;
 use serde::{Deserialize, Serialize};
 use std::{
-    cmp::Ordering,
     collections::BinaryHeap,
     hash::{Hash, Hasher},
 };

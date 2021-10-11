@@ -1,22 +1,20 @@
-use fnv::FnvHashMap as HashMap;
-use fnv::FnvHashSet as HashSet;
+
+
 use std::{
-    cmp::Ordering,
-    collections::BinaryHeap,
-    hash::{Hash, Hasher},
+    hash::{Hasher},
 };
 
-use futures::{future::join_all, try_join};
-use itertools::Itertools;
+
+
 use serde::{Deserialize, Serialize};
 use wasm_bindgen::{prelude::*, JsCast};
 use wasm_bindgen_futures::JsFuture;
-use web_sys::{console, Request, RequestInit, RequestMode, Response};
+use web_sys::{Request, RequestInit, RequestMode, Response};
 
 use crate::node::Node;
-use crate::pathfinding::Directions;
-use crate::pathfinding::Position;
-use crate::utils::*;
+
+
+
 use serde::Deserializer;
 
 use ndarray::{Array, Array2};
