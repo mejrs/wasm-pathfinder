@@ -80,6 +80,7 @@ pub fn prepend_vec_append<T>(a: T, sequence: Vec<T>, z: T) -> Vec<T> {
 
 #[cfg(test)]
 mod tests {
+    use super::*;
     #[test]
     fn test_accumulator_cumulative() {
         let result: Vec<i32> = (1..6).accumulate(|x, y| x + y).collect();

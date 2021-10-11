@@ -1,6 +1,6 @@
-use futures::{future::join_all, try_join};
 use fnv::FnvHashMap as HashMap;
 use fnv::FnvHashSet as HashSet;
+use futures::{future::join_all, try_join};
 use itertools::Itertools;
 use serde::{Deserialize, Serialize};
 use std::{
@@ -363,8 +363,8 @@ impl<'a> Astar {
         let mut closed_nodes = HashMap::<(i32, i32), Node>::default();
         let mut closed_nodes_coordinates_set = HashSet::<(i32, i32)>::default();
 
-        let start_node = points.start.into_node_in_feature(&self.feature);
-        let end_node = points.end.into_node_in_feature(&self.feature);
+        let start_node = points.start.clone().into_node_in_feature(&self.feature);
+        let end_node = points.end.clone().into_node_in_feature(&self.feature);
 
         //if the start tile is blocked, walk off this tile
         if !&self.feature.walkable_at(&start_node) {
@@ -531,7 +531,7 @@ impl Position {
             feature_key,
         }
     }
-    pub fn into_node_in_feature<'b>(&self, feature: &'b Feature) -> Node {
+    pub fn into_node_in_feature(self, feature: &Feature) -> Node {
         assert!(self.x > feature.offset.x);
         assert!(self.y > feature.offset.y);
 
