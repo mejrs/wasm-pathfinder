@@ -187,7 +187,7 @@ pub fn feature_pair_as_transport(
     transports_from_a_to_b
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Clone)]
 pub struct PathfindingResult {
     start: Position,
     goal: Position,
@@ -246,7 +246,7 @@ impl PointPair {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug)]
 pub struct GlobalNodeContainer {
     feature_table: HashMap<String, Vec<String>>,
     feature_navigation: HashMap<String, Vec<Transport>>,
@@ -500,7 +500,7 @@ impl<'a> Astar {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Clone)]
 pub struct AstarResult {
     start: Position,
     end: Position,
@@ -515,7 +515,7 @@ pub struct AstarResult {
 
 #[derive(Debug, Serialize, Deserialize, Clone, Eq)]
 pub struct Position {
-    #[serde(rename(serialize = "z"))]
+    #[serde(rename(deserialize = "z"))]
     plane: i32,
     x: i32,
     y: i32,
@@ -620,7 +620,7 @@ impl Iterator for Directions {
         }
     }
 }
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Deserialize, Clone)]
 pub struct Transport {
     #[serde(alias = "rowNumber")]
     row_number: u32,
@@ -637,6 +637,8 @@ impl Transport {
         [self.origin, self.destination]
     }
 }
+
+
 pub struct Key {
     plane: i32,
     feature: i32,
