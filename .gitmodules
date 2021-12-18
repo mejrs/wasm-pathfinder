@@ -1,3 +1,0 @@
-[submodule "wasm-pathfinder-data"]
-	path = wasm-pathfinder-data
-	url = https://github.com/mejrs/wasm-pathfinder-data

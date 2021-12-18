@@ -272,7 +272,7 @@ impl GlobalNodeContainer {
         opts.method("GET");
         opts.mode(RequestMode::Cors);
 
-        let url = "wasm-pathfinder/wasm-pathfinder-data/feature_table.json";
+        let url = "wasm-pathfinder-data/feature_table.json";
 
         let request = Request::new_with_str_and_init(url, &opts)?;
         request
@@ -302,7 +302,7 @@ impl GlobalNodeContainer {
         opts.method("GET");
         opts.mode(RequestMode::Cors);
 
-        let url = "wasm-pathfinder/wasm-pathfinder-data/feature_navigation.json";
+        let url = "wasm-pathfinder-data/feature_navigation.json";
 
         let request = Request::new_with_str_and_init(url, &opts)?;
         request
@@ -515,7 +515,7 @@ pub struct AstarResult {
 
 #[derive(Debug, Serialize, Deserialize, Clone, Eq)]
 pub struct Position {
-    #[serde(rename(deserialize = "z"))]
+    #[serde(rename(serialize = "z"))]
     plane: i32,
     x: i32,
     y: i32,

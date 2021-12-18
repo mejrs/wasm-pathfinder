@@ -4,7 +4,7 @@ mod pathfinding;
 mod utils;
 
 use crate::pathfinding::Position;
-
+use wasm_bindgen::prelude::*;
 
 /// WASM interface to Pathfinding::race
 #[wasm_bindgen]
